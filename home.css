@@ -1,0 +1,111 @@
+@font-face {
+    font-family: genshin;
+    src: url(genshin.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/homebg.png');
+    background-size: cover;
+}
+
+.about-body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/bg1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 20px 20px 0px 0px;
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a,
+header nav ul li button {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    font-size: 23px;
+    font-family: genshin;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+main {
+    padding: 20px;
+}
+
+main section {
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.button-container button {
+    padding: 15px 30px;
+    font-family: genshin;
+    font-size: 30px;
+    color: #ffffff;
+    margin: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 30px;
+ 
+    box-shadow: inset 5px 5px 7px #dff59e,
+                inset -5px -5px 7px #869360;
+}
+
+.button-container button:hover {
+    box-shadow: inset 5px 5px 7px #869360,
+                inset -5px -5px 7px #dff59e;
+}
+
+footer {
+    width: 100%;
+    background-color: transparent;
+    color: #869360;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+}
+
+#logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}

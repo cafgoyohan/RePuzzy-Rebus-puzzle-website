@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RePuzzy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <img src="img/1.png" alt="Logo" id="logo"> 
+        <p>A Filipino Rebus Puzzle Platform for Enhancing Literary Comprehension of Learners</p>
+        <button id="loginBtn">Start</button>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <p>Log In</p>
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" required>
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required>
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required>
+            <button id="loginSubmit">Log In</button>
+            <div class="link" id="showRegister">Do not have an account? Create one.</div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <p>Create an Account</p>
+            <label for="registerUsername">Username</label>
+            <input type="text" id="registerUsername" required>
+            <label for="registerEmail">Email</label>
+            <input type="email" id="registerEmail" required>
+            <label for="registerPassword">Password</label>
+            <input type="password" id="registerPassword" required>
+            <label for="registerConfirmPassword">Confirm Password</label>
+            <input type="password" id="registerConfirmPassword" required>
+            <button id="registerSubmit">Register</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p>Welcome to RePuzzy!</p>
+            <h1>Your account has been successfully created. Enjoy Playing!</h1>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
