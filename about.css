@@ -10,20 +10,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('img/homebg.png');
+    background-image: url('img/aboutbg.png');
     background-size: cover;
-}
-
-.about-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('img/bg1.png');
-    background-size: cover;
-    background-position: center;
 }
 
 header {
@@ -64,10 +52,27 @@ header nav ul li button {
 
 main {
     padding: 20px;
+    margin: 7rem 20rem 5rem 20rem;
 }
 
-main section {
-    margin-bottom: 20px;
+main section .header1 {
+    text-align: center;
+    font-family: genshin;
+    font-size: 30px;
+    color: #869360;
+}
+
+main section .header2 {
+    text-align: center;
+    font-family: genshin;
+    font-size: 25px;
+    color: #869360;
+    padding-top: 10px;
+}
+
+main section p, li {
+    font-size: 18px;
+    color: #574A25;
 }
 
 .button-container {
@@ -104,7 +109,6 @@ footer {
     color: #574A25;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     bottom: 0;
 }
 
