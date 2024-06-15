@@ -1,0 +1,249 @@
+@font-face {
+    font-family: genshin;
+    src: url(genshin.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/longbg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-image: url('img/navbg.png');
+    background-size: cover;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    height: 115px;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 25px 20px 0 0;
+    display: flex;
+    gap: 20px;
+    justify-content: end;
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li:hover {
+    transform: scale(1.1);
+}
+
+header nav ul:hover > :not(:hover) {
+    opacity: 0.4;
+}
+
+header nav ul li a,
+header nav ul li button {
+    color: white;
+    text-decoration: none;
+    padding: 10px 10px;
+    font-size: 23px;
+    font-family: genshin;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    padding: 50px;
+    margin: 12rem 20rem 0rem 20rem;
+    background-image: url('img/contentbg.png');
+    background-size: cover;
+    width: 60%;
+}
+
+main section .header1 {
+    text-align: center;
+    font-family: genshin;
+    font-size: 30px;
+    color: #869360;
+}
+
+main section .header2 {
+    text-align: center;
+    font-family: genshin;
+    font-size: 25px;
+    color: #869360;
+    padding-top: 30px;
+}
+
+main section p, li, a {
+    font-size: 18px;
+    color: #574A25;
+    text-decoration: none;
+}
+
+main section span {
+    font-family: genshin;
+    font-size: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+form label {
+    font-family: genshin;
+    font-size: 18px;
+    color: #574A25;
+    display: block;
+    margin: 5px 0 5px;
+}
+
+form input, form textarea {
+    background-color: #fffcf0;
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 7px;
+    border: 2px solid #ddd7c9;
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #574A25;
+}
+
+form button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 50px;
+    font-family: genshin;
+    font-size: 20px;
+    color: #574A25;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 30px;
+    box-shadow: inset 5px 5px 7px #fefbee, 
+                inset -5px -5px 7px #dddad4;
+}
+
+form button:hover {
+    box-shadow: inset 5px 5px 7px #dddad4, 
+                inset -5px -5px 7px #fefbee;
+}
+
+.social-media {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-media li {
+    display: inline-block;
+}
+
+.social-media li a {
+    text-decoration: none;
+    color: #869360;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-media li a:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    width: 100%;
+    background-color: #869360;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    main {
+        margin: 5rem 10rem 3rem 10rem;
+    }
+
+    main section .header1 {
+        font-size: 28px;
+    }
+
+    main section .header2 {
+        font-size: 23px;
+    }
+
+    form button {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin-bottom: 10px;
+    }
+
+    header nav ul li a {
+        font-size: 20px;
+    }
+
+    main {
+        margin: 5rem 5rem 3rem 5rem;
+    }
+
+    main section .header1 {
+        font-size: 26px;
+    }
+
+    main section .header2 {
+        font-size: 21px;
+    }
+
+    form button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li a {
+        font-size: 18px;
+    }
+
+    main {
+        margin: 3rem 2rem 2rem 2rem;
+    }
+
+    main section .header1 {
+        font-size: 24px;
+    }
+
+    main section .header2 {
+        font-size: 20px;
+    }
+
+    form button {
+        font-size: 14px;
+    }
+}

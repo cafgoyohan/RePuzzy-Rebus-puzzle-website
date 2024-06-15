@@ -32,6 +32,11 @@ header nav ul {
 
 header nav ul li {
     display: inline;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li:hover {
+    transform: scale(1.1);
 }
 
 header nav ul:hover > :not(:hover) {
@@ -110,10 +115,4 @@ footer {
     text-align: center;
     padding: 10px 0;
     bottom: 0;
-}
-
-#logo {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
 }

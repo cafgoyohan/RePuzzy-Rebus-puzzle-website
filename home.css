@@ -14,44 +14,52 @@ body {
     background-size: cover;
 }
 
-.about-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('img/bg1.png');
-    background-size: cover;
-    background-position: center;
-}
-
 header {
     width: 100%;
     background-color: transparent;
     color: white;
     padding: 20px 0;
     text-align: center;
+    position: relative;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+    width: 100%;
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 30px;
 }
 
 header nav ul {
     padding: 0;
-    margin: 25px 20px 0px 0px;
+    margin: 25px 20px 0 0;
     display: flex;
     gap: 20px;
-    justify-content: end;
+    list-style: none;
 }
 
 header nav ul li {
     display: inline;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li:hover {
+    transform: scale(1.1);
 }
 
 header nav ul:hover > :not(:hover) {
     opacity: 0.4;
 }
 
-header nav ul li a,
-header nav ul li button {
+header nav ul li a {
     color: white;
     text-decoration: none;
     padding: 10px 10px;
@@ -64,10 +72,7 @@ header nav ul li button {
 
 main {
     padding: 20px;
-}
-
-main section {
-    margin-bottom: 20px;
+    text-align: center;
 }
 
 .button-container {
@@ -88,13 +93,12 @@ main section {
     background: transparent;
     border: none;
     border-radius: 30px;
- 
-    box-shadow: inset 5px 5px 7px #dff59e,
+    box-shadow: inset 5px 5px 7px #dff59e, 
                 inset -5px -5px 7px #869360;
 }
 
 .button-container button:hover {
-    box-shadow: inset 5px 5px 7px #869360,
+    box-shadow: inset 5px 5px 7px #869360, 
                 inset -5px -5px 7px #dff59e;
 }
 
@@ -108,8 +112,60 @@ footer {
     bottom: 0;
 }
 
-#logo {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 5px;
+        width: 200px;
+        padding: 20px;
+    }
+
+    header nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    header nav ul.show {
+        display: flex;
+    }
+
+    header nav ul li a {
+        font-size: 18px;
+    }
+
+    .button-container button {
+        font-size: 24px;
+        padding: 12px 24px;
+    }
+
+    footer {
+        position: relative;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav ul li a {
+        font-size: 16px;
+    }
+
+    .button-container button {
+        font-size: 20px;
+        padding: 10px 20px;
+    }
+
+    footer {
+        padding: 20px 0;
+        position: relative;
+    }
 }
