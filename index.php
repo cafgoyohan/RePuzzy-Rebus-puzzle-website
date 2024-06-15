@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RePuzzy</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <?php
+        require 'connection.php';
+        $connect = Connect();
+        
+        try {
+            if (isset($_POST['registerSubmit'])) {
+                $rUser = $_POST['registerUsername'];
+                $rEmail = $_POST['registerEmail'];
+                $rPass = $_POST['registerPassword'];
+                $rDate = date('Y-m-d H:i:s');
+
+                $query = "INSERT INTO user_details(id, username, email, password, date_created)
+                VALUES (:rId, :rUser, :rEmail, :rPass, :rCPass, :rDate)";
+            
+                $query_run = $connect->prepare($query);
+                $data = [    
+                    ':rId' => NULL,                
+                    ':rUser' => $rUser,
+                    ':rEmail' => $rEmail,
+                    ':rPass' => $rPass,
+                    ':rDate' => $rDate
+                ];
+                $query_execute = $query_run->execute($data);
+                
+                echo "Created account";
+        }
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    ?>
+
     <div class="container">
-        <img src="img/1.png" alt="Logo" id="logo"> 
+        <img src="img/1.png" alt="Logo" id="logo">
         <p>A Filipino Rebus Puzzle Platform for Enhancing Literary Comprehension of Learners</p>
         <button id="loginBtn">Start</button>
     </div>
@@ -33,14 +66,14 @@
         <div class="modal-content">
             <p>Create an Account</p>
             <label for="registerUsername">Username</label>
-            <input type="text" id="registerUsername" required>
+            <input type="text" name="registerUsername" id="registerUsername" required>
             <label for="registerEmail">Email</label>
-            <input type="email" id="registerEmail" required>
+            <input type="email" name="registerEmail" id="registerEmail" required>
             <label for="registerPassword">Password</label>
-            <input type="password" id="registerPassword" required>
+            <input type="password" name="registerPassword" id="registerPassword" required>
             <label for="registerConfirmPassword">Confirm Password</label>
-            <input type="password" id="registerConfirmPassword" required>
-            <button id="registerSubmit">Register</button>
+            <input type="password" name="registerConfirmPassword" id="registerConfirmPassword" required>
+            <button name="registerSubmit" id="registerSubmit">Register</button>
         </div>
     </div>
 
@@ -54,4 +87,5 @@
 
     <script src="scripts.js"></script>
 </body>
+
 </html>
