@@ -15,6 +15,8 @@
         
         try {
             if (isset($_POST['registerSubmit'])) {
+                echo '<script>alert("Creating account")</script>';
+
                 $rUser = $_POST['registerUsername'];
                 $rEmail = $_POST['registerEmail'];
                 $rPass = $_POST['registerPassword'];
@@ -34,7 +36,8 @@
                 
                 echo '<script>alert("Created account")</script>';
         }
-        } catch (Exception $e) {
+        } catch (Exception $e) {            
+            echo '<script>alert("Error")</script>';
             echo $e->getMessage();
         }
     ?>
@@ -63,7 +66,7 @@
     <!-- Register Modal -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
-            <form method="post" action="?">
+            <form method="post" action="">
                 <p>Create an Account</p>
                 <label for="registerUsername">Username</label>
                 <input type="text" name="registerUsername" id="registerUsername" required>
@@ -73,7 +76,7 @@
                 <input type="password" name="registerPassword" id="registerPassword" required>
                 <label for="registerConfirmPassword">Confirm Password</label>
                 <input type="password" name="registerConfirmPassword" id="registerConfirmPassword" required>
-                <button name="registerSubmit" id="registerSubmit">Register</button>
+                <button type="submit" name="registerSubmit" id="registerSubmit">Register</button>
             </form>
         </div>
     </div>
