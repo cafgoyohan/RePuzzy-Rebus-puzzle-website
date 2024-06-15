@@ -10,7 +10,7 @@ function Connect() {
         $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        echo "Connected to $dbname at $dbhost successfully";
+        echo '<script>alert("Connected to '.$dbname.' at '.$dbhost.' successfully")</script>';
         return $conn;
     } catch (PDOException $ex)
     {

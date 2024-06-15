@@ -18,10 +18,11 @@
                 $rUser = $_POST['registerUsername'];
                 $rEmail = $_POST['registerEmail'];
                 $rPass = $_POST['registerPassword'];
-                $rDate = date('Y-m-d H:i:s');
+                // $rDate = date('Y-m-d H:i:s');
 
-                $query = "INSERT INTO user_details(id, username, email, password, date_created)
-                VALUES (:rId, :rUser, :rEmail, :rPass, :rCPass, :rDate)";
+                $query = "INSERT INTO user_details(id, username, email, password)
+                VALUES (:rId, :rUser, :rEmail, :rPass, :rCPass)";
+                
             
                 $query_run = $connect->prepare($query);
                 $data = [    
@@ -29,11 +30,11 @@
                     ':rUser' => $rUser,
                     ':rEmail' => $rEmail,
                     ':rPass' => $rPass,
-                    ':rDate' => $rDate
+                    // ':rDate' => $rDate
                 ];
                 $query_execute = $query_run->execute($data);
                 
-                echo "Created account";
+                echo '<script>alert("Created account")</script>';
         }
         } catch (Exception $e) {
             echo $e->getMessage();
@@ -64,16 +65,18 @@
     <!-- Register Modal -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
-            <p>Create an Account</p>
-            <label for="registerUsername">Username</label>
-            <input type="text" name="registerUsername" id="registerUsername" required>
-            <label for="registerEmail">Email</label>
-            <input type="email" name="registerEmail" id="registerEmail" required>
-            <label for="registerPassword">Password</label>
-            <input type="password" name="registerPassword" id="registerPassword" required>
-            <label for="registerConfirmPassword">Confirm Password</label>
-            <input type="password" name="registerConfirmPassword" id="registerConfirmPassword" required>
-            <button name="registerSubmit" id="registerSubmit">Register</button>
+            <form>
+                <p>Create an Account</p>
+                <label for="registerUsername">Username</label>
+                <input type="text" name="registerUsername" id="registerUsername" required>
+                <label for="registerEmail">Email</label>
+                <input type="email" name="registerEmail" id="registerEmail" required>
+                <label for="registerPassword">Password</label>
+                <input type="password" name="registerPassword" id="registerPassword" required>
+                <label for="registerConfirmPassword">Confirm Password</label>
+                <input type="password" name="registerConfirmPassword" id="registerConfirmPassword" required>
+                <button name="registerSubmit" id="registerSubmit">Register</button>
+            </form>
         </div>
     </div>
 
