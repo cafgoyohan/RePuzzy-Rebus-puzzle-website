@@ -21,8 +21,7 @@
                 // $rDate = date('Y-m-d H:i:s');
 
                 $query = "INSERT INTO user_details(id, username, email, password)
-                VALUES (:rId, :rUser, :rEmail, :rPass, :rCPass)";
-                
+                VALUES (:rId, :rUser, :rEmail, :rPass)";
             
                 $query_run = $connect->prepare($query);
                 $data = [    
