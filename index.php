@@ -20,12 +20,11 @@
                 $rPass = $_POST['registerPassword'];
                 // $rDate = date('Y-m-d H:i:s');
 
-                $query = "INSERT INTO user_details(id, username, email, password)
-                VALUES (:rId, :rUser, :rEmail, :rPass)";
+                $query = "INSERT INTO user_details(`username`, `email`, `password`)
+                VALUES (:rUser, :rEmail, :rPass)";
             
                 $query_run = $connect->prepare($query);
-                $data = [    
-                    ':rId' => NULL,                
+                $data = [
                     ':rUser' => $rUser,
                     ':rEmail' => $rEmail,
                     ':rPass' => $rPass,
@@ -64,7 +63,7 @@
     <!-- Register Modal -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
-            <form>
+            <form method="post" action="?">
                 <p>Create an Account</p>
                 <label for="registerUsername">Username</label>
                 <input type="text" name="registerUsername" id="registerUsername" required>
