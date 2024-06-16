@@ -31,7 +31,6 @@ window.addEventListener('click', (event) => {
 
 // Validate registration form and show confirmation modal
 registerSubmit.addEventListener('click', (event) => {
-    event.preventDefault();
     const username = document.getElementById('registerUsername').value;
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
