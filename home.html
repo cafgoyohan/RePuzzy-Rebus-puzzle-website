@@ -7,27 +7,33 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="menu-icon" id="menuIcon">&#9776;</div>
-            <ul id="navLinks">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html">Log Out</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="home.html" class="nav-logo">
+                <img src="img/logo-1.png" alt="RePuzzy Logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.php">Log Out</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <img src="img/cat-paw.png" alt="Cat Paw" class="cat-paw">
+            </div>
+        </div>
+    </nav>
 
     <main>
-        <section id="home">
-            <div class="button-container">
-                <button id="playBtn">Play</button>
-                <button id="continueBtn">Continue</button>
-                <button id="levelsBtn">Levels</button>
-            </div>
-        </section>
+        <div class="logo">
+            <img src="img/welcome-2.png" alt="Logo">
+        </div>
+        <button class="play-button">Play</button>
     </main>
+
+    <div class="bottom-design">
+        <img src="img/footer.png" alt="Bottom Design">
+    </div>
 
     <footer>
         <p>&copy; 2024 RePuzzy. All rights reserved.</p>
