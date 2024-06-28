@@ -1,0 +1,161 @@
+@font-face {
+    font-family: genshin;
+    src: url(genshin.ttf);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('img/plain-bg.png');
+    background-size: cover;
+}
+
+.header {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
+}
+
+.back-button {
+    background-color: transparent;
+    background-image: url("img/plank.png");
+    background-size: cover;
+    font-family: genshin;
+    font-size: 20px;
+    color: white;
+    border: none;
+    padding: 15px 75px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 15px 30px;
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+}
+
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-logo {
+    margin-top: 15px;
+    height: 50px;
+    width: auto;
+}
+
+.title {
+    margin-top: 30px;
+    margin-bottom: -30px;
+    text-align: center;
+}
+
+.title img {
+    height: 5rem;
+    width: auto;
+}
+
+.carousel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.carousel-item {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Custom styles for Slick carousel arrows */
+.slick-prev:before, 
+.slick-next:before {
+    font-size: 50px !important;
+    color: #ca8138 !important;
+    opacity: 0.75 !important;
+    background: none !important;
+    text-shadow: none !important;
+}
+
+.slick-prev:before {
+    content: '←'; /* Unicode arrow character or custom content for previous */
+}
+
+.slick-next:before {
+    content: '→'; /* Unicode arrow character or custom content for next */
+}
+
+.slick-prev:hover:before, 
+.slick-next:hover:before {
+    opacity: 1 !important;
+    color: #EBDFA5!important;
+    font-size: 55px !important; /* Increase font size on hover */
+    transition: font-size 0.5s ease; /* Add transition for smooth effect */
+}
+
+/*
+.slick-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+
+}
+
+.slick-dots li button {
+    font-size: 15px !important;
+    line-height: 10px !important;
+    border: none;
+    border-radius: 50%;
+    width: 15px !important;
+    height: 15px !important;
+    opacity: 1 !important;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.slick-dots li.slick-active button {
+    background-color: #ca8138;
+}
+
+.slick-dots li button:hover {
+    background-color: #EBDFA5;
+}
+*/
+
+.bottom-design {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.bottom-design img {
+    width: 100%;
+    display: block;
+}
