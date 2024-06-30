@@ -3,6 +3,10 @@
     src: url(genshin.ttf);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,54 +14,90 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('img/aboutbg.png');
+    background-image: url('img/plain-bg.png');
     background-size: cover;
+    scroll-behavior: smooth;
 }
 
-header {
+.navbar {
+    backdrop-filter: blur(3px);
+    color: #fff;
+    position: fixed;
     width: 100%;
-    background-color: transparent;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+    top: 0;
+    z-index: 1000;
+    position: relative;
+    font-family: genshin;
 }
 
-header nav ul {
-    padding: 0;
-    margin: 25px 20px 0px 0px;
+.nav-content {
     display: flex;
-    gap: 20px;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-right: 10px;
 }
 
-header nav ul li {
-    display: inline;
-    transition: transform 0.3s ease;
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0px 0px 20px;
 }
 
-header nav ul li:hover {
-    transform: scale(1.1);
+.nav-links {
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    list-style: none;
 }
 
-header nav ul:hover > :not(:hover) {
-    opacity: 0.4;
-}
-
-header nav ul li a,
-header nav ul li button {
+.nav-links a {
     color: white;
     text-decoration: none;
     padding: 10px 10px;
-    font-size: 23px;
+    font-size: 20px;
     font-family: genshin;
     background-color: transparent;
     border: none;
     cursor: pointer;
+    transition: opacity 0.6s ease;
+    transition: transform 0.6s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.nav-links:hover > :not(:hover) {
+    opacity: 0.4;
+}
+
+.nav-logo img {
+    height: auto;
+    width: 8rem;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 main {
     padding: 20px;
-    margin: 7rem 20rem 5rem 20rem;
+    width: 60%;
+    scroll-snap-type: y mandatory; /* Enable vertical snapping */
+    overflow-y: auto; /* Enable scrolling within main */
+}
+
+.scroll-section {
+    height: 100vh; /* Take up full viewport height */
+    scroll-snap-align: start; /* Snap to the start of each section */
+    padding: 20px; /* Adjust as needed for spacing */
 }
 
 main section .header1 {
@@ -108,11 +148,26 @@ main section p, li {
                 inset -5px -5px 7px #dff59e;
 }
 
+.bottom-design {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.bottom-design img {
+    width: 100%;
+    display: block;
+}
+
 footer {
+    position: fixed;
     width: 100%;
     background-color: transparent;
     color: #574A25;
     text-align: center;
     padding: 10px 0;
     bottom: 0;
+    z-index: 1000;
 }

@@ -7,41 +7,62 @@
     <link rel="stylesheet" href="about.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html">Log Out</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="home.html" class="nav-logo">
+                <img src="img/logo-1.png" alt="RePuzzy Logo">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.php">Log Out</a>
+            </div>
+        </div>
+    </nav>
 
     <main>
-        <section id="about">
-            <p class="header1">About RePuzzy</p>
-            <p>
-                RePuzzy is a Filipino Rebus Puzzle Platform aimed at enhancing literary comprehension among learners. The platform provides an interactive and enjoyable learning experience through game-based educational content.
-            </p>
-            <p class="header2">Objectives</p>
-            <ul>
-                <li>To create an interactive and accessible platform for an enjoyable literacy learning experience</li>
-                <li>To help improve Filipino literacy comprehension among students</li>
-                <li>To provide students with a break from school work through simple, quick entertainment</li>
-                <li>To test players' knowledge of Filipino words, expressions, and phrases</li>
-                <li>To improve users' cognitive skills, including memory retention, problem-solving, and logical thinking</li>
-            </ul>
-            <p class="header2">Why RePuzzy?</p>
-            <p>
-                RePuzzy combines the fun of rebus puzzles with educational value, making it an ideal tool for both learning and entertainment. It helps strengthen memory, foster creative problem-solving skills, and enhance logical thinking abilities.
-            </p>
-        </section>
+        <div class="scroll-section" id="about">
+            <section class="about">
+                <p class="header1">About RePuzzy</p>
+                <p>
+                    RePuzzy is a Filipino Rebus Puzzle Platform aimed at enhancing literary comprehension among learners. The platform provides an interactive and enjoyable learning experience through game-based educational content.
+                </p>
+            </section>
+        </div>
+
+        <div class="scroll-section" id="objective">
+            <section class="objective">
+                <p class="header2">Objectives</p>
+                <ul>
+                    <li>To create an interactive and accessible platform for an enjoyable literacy learning experience</li>
+                    <li>To help improve Filipino literacy comprehension among students</li>
+                    <li>To provide students with a break from school work through simple, quick entertainment</li>
+                    <li>To test players' knowledge of Filipino words, expressions, and phrases</li>
+                    <li>To improve users' cognitive skills, including memory retention, problem-solving, and logical thinking</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="scroll-section" id="why-repuzzy">
+            <section class="why-repuzzy">
+                <p class="header2">Why RePuzzy?</p>
+                <p>
+                    RePuzzy combines the fun of rebus puzzles with educational value, making it an ideal tool for both learning and entertainment. It helps strengthen memory, foster creative problem-solving skills, and enhance logical thinking abilities.
+                </p>
+            </section>
+        </div>
     </main>
+
+    <div class="bottom-design">
+        <img src="img/footer.png" alt="Bottom Design">
+    </div>
 
     <footer>
         <p>&copy; 2024 RePuzzy. All rights reserved.</p>
         <p>Designed to enhance literary comprehension and cognitive skills.</p>
     </footer>
+
+    <script src="about.js"></script>
 </body>
 </html>
