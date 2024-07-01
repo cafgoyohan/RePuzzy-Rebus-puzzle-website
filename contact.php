@@ -1,12 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact RePuzzy</title>
     <link rel="stylesheet" href="contact.css">
 </head>
+
 <body>
+    <?php
+        session_start();
+        require 'connection.php';
+        $connect = Connect();
+        
+        try {
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // echo '<pre>';
+                // print_r($_POST);
+                // echo '</pre>';
+
+                // Register
+                if (isset($_POST['ticketSubmit'])) {
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $msg = $_POST['message'];
+    
+                    $query = "INSERT INTO tickets(`name`, `email`, `message`)
+                              VALUES (:name, :email, :msg)";
+    
+                    $query_run = $connect->prepare($query);
+                    $data = [
+                        ':name' => $name,
+                        ':email' => $email,
+                        ':msg' => $msg
+                    ];
+                    $query_execute = $query_run->execute($data);
+    
+                    echo '<script>alert("Submitted ticket")</script>';
+                    header("Location: submitted_ticket.html");
+                    exit();
+                }
+        }
+        } catch (Exception $e) {            
+            echo '<script>alert("Error submitting ticket")</script>';
+            echo $e->getMessage();
+        }
+    ?>
+    
     <nav class="navbar">
         <div class="nav-content">
             <a href="home.html" class="nav-logo">
@@ -33,9 +74,10 @@
     <main>
         <section class="contact" id="contact">
             <h2 class="header1">Contact Us</h2>
-            <p>If you have any questions or feedback, feel free to reach out to us using the form below or through our contact information provided.</p>
-            
-            <form id="contactForm">
+            <p>If you have any questions or feedback, feel free to reach out to us using the form below or through our
+                contact information provided.</p>
+
+            <form id="contactForm" method="POST" action="">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
 
@@ -44,11 +86,12 @@
 
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button class="submit-button" type="submit">Send Message</button>
+                
+                <button class="submit-button" name="ticketSubmit" id="ticketSubmit" value="ticket">Send Message</button>
             </form>
-            
-            <p id="confirmationMessage" style="display:none; color: green; font-weight: bold;">Your message has been sent successfully!</p>
+
+            <p id="confirmationMessage" style="display:none; color: green; font-weight: bold;">Your message has been
+                sent successfully!</p>
 
 
             <h3 class="header2">Other Ways to Reach Us</h3>
@@ -76,4 +119,5 @@
 
     <script src="contact.js"></script>
 </body>
+
 </html>

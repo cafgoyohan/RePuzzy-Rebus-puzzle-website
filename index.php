@@ -10,31 +10,66 @@
 
 <body>
     <?php
+        session_start();
         require 'connection.php';
         $connect = Connect();
         
         try {
-            if (isset($_POST['registerSubmit'])) {
-                echo '<script>alert("Creating account")</script>';
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // echo '<pre>';
+                // print_r($_POST);
+                // echo '</pre>';
 
-                $rUser = $_POST['registerUsername'];
-                $rEmail = $_POST['registerEmail'];
-                $rPass = $_POST['registerPassword'];
-                // $rDate = date('Y-m-d H:i:s');
+                // Login
+                if (isset($_POST['loginSubmit'])) {
+                    echo '<script>alert("Logging in...")</script>';
 
-                $query = "INSERT INTO user_details(`username`, `email`, `password`)
-                VALUES (:rUser, :rEmail, :rPass)";
-            
-                $query_run = $connect->prepare($query);
-                $data = [
-                    ':rUser' => $rUser,
-                    ':rEmail' => $rEmail,
-                    ':rPass' => $rPass,
-                    // ':rDate' => $rDate
-                ];
-                $query_execute = $query_run->execute($data);
-                
-                echo '<script>alert("Created account")</script>';
+                    $lUser = $_POST['loginUsername'];
+                    $lPass = $_POST['loginPassword'];
+    
+                    $query = "SELECT * FROM user_details
+                              WHERE username = :lUser OR email = :lUser";
+                              
+                    $query_run = $connect->prepare($query);
+                    $query_run->bindParam(':lUser', $lUser);
+                    $query_run->execute();
+    
+                    $user = $query_run->fetch(PDO::FETCH_ASSOC);
+    
+                    if ($user && $lPass == $user['password']) {
+                        $_SESSION['user'] = $user['username'];
+                        echo '<script>alert("Successful log in!")</script>';
+                        // header("Location: " . $_SERVER['PHP_SELF']);
+                        header("Location: home.html");
+                        exit();
+                    } else {
+                        echo '<script>alert("Invalid username or password.")</script>';
+                    }
+                }
+
+                // Register
+                if (isset($_POST['registerSubmit'])) {
+                    $rUser = $_POST['registerUsername'];
+                    $rEmail = $_POST['registerEmail'];
+                    $rPass = $_POST['registerPassword'];
+                    // $rPass = password_hash($_POST['registerPassword'], PASSWORD_BCRYPT);
+    
+                    $query = "INSERT INTO user_details(`username`, `email`, `password`)
+                              VALUES (:rUser, :rEmail, :rPass)";
+    
+                    $query_run = $connect->prepare($query);
+                    $data = [
+                        ':rUser' => $rUser,
+                        ':rEmail' => $rEmail,
+                        ':rPass' => $rPass
+                    ];
+                    $query_execute = $query_run->execute($data);
+    
+                    echo '<script>alert("Created account")</script>';
+    
+                    header("Location: " . $_SERVER['PHP_SELF']);
+                    exit();
+                }
         }
         } catch (Exception $e) {            
             echo '<script>alert("Error")</script>';
@@ -51,22 +86,22 @@
     <!-- Login Modal -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
-            <p>Log In</p>
-            <label for="loginUsername">Username</label>
-            <input type="text" id="loginUsername" required>
-            <label for="loginEmail">Email</label>
-            <input type="email" id="loginEmail" required>
-            <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" required>
-            <button id="loginSubmit">Log In</button>
-            <div class="link" id="showRegister">Do not have an account? Create one.</div>
+            <form method="POST" action="">
+                <p>Log In</p>
+                <label for="loginUsername">Username or Email</label>
+                <input type="text" name="loginUsername" id="loginUsername" required>
+                <label for="loginPassword">Password</label>
+                <input type="password" name="loginPassword" id="loginPassword" required>
+                <button name="loginSubmit" id="loginSubmit" value="login">Log In</button>
+                <div class="link" id="showRegister">Do not have an account? Create one.</div>
+            </form>
         </div>
     </div>
 
     <!-- Register Modal -->
     <div id="registerModal" class="modal">
         <div class="modal-content">
-            <form method="post" action="">
+            <form method="POST" action="">
                 <p>Create an Account</p>
                 <label for="registerUsername">Username</label>
                 <input type="text" name="registerUsername" id="registerUsername" required>
@@ -76,7 +111,7 @@
                 <input type="password" name="registerPassword" id="registerPassword" required>
                 <label for="registerConfirmPassword">Confirm Password</label>
                 <input type="password" name="registerConfirmPassword" id="registerConfirmPassword" required>
-                <button type="submit" name="registerSubmit" id="registerSubmit">Register</button>
+                <button name="registerSubmit" id="registerSubmit" value="register">Register</button>
             </form>
         </div>
     </div>

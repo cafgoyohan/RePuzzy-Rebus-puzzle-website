@@ -1,5 +1,4 @@
 <?php
-
 function Connect() {
     $dbhost = "localhost";
     $dbuser = "root";
@@ -9,8 +8,7 @@ function Connect() {
     try {
         $conn = new PDO("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        echo '<script>alert("Connected to '.$dbname.' at '.$dbhost.' successfully")</script>';
+        // echo '<script>alert("Connected to '.$dbname.' at '.$dbhost.' successfully")</script>';
         return $conn;
     } catch (PDOException $ex)
     {
