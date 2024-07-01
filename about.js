@@ -1,9 +1,17 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll('main .scroll-section');
-    
-    sections.forEach(section => {
-        section.addEventListener('click', () => {
-            section.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
+document.getElementById("hamburger").addEventListener("click", function() {
+    var navLinks = document.getElementById("navLinks");
+    if (navLinks.style.display === "block") {
+        navLinks.style.display = "none";
+    } else {
+        navLinks.style.display = "block";
+    }
 });
+
+function toggleMenu() {
+    var navLinks = document.getElementById('navLinks');
+    if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+    } else {
+        navLinks.style.display = 'flex';
+    }
+}

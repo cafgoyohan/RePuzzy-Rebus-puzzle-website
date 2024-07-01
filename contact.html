@@ -7,19 +7,31 @@
     <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="index.html">Log Out</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="home.html" class="nav-logo">
+                <img src="img/logo-2.png" alt="RePuzzy Logo">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <a href="index.php">Log Out</a>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <img src="img/hamburger.png" alt="Cat" class="cat">
+            </div>
+        </div>
+    </nav>
+
+    <div class="header-design">
+        <img src="img/header.png" alt="Header Design">
+    </div>
 
     <main>
-        <section id="contact">
+        <section class="contact" id="contact">
             <h2 class="header1">Contact Us</h2>
             <p>If you have any questions or feedback, feel free to reach out to us using the form below or through our contact information provided.</p>
             
@@ -33,7 +45,7 @@
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
-                <button type="submit">Send Message</button>
+                <button class="submit-button" type="submit">Send Message</button>
             </form>
             
             <p id="confirmationMessage" style="display:none; color: green; font-weight: bold;">Your message has been sent successfully!</p>
@@ -52,6 +64,10 @@
             </ul>
         </section>
     </main>
+
+    <div class="bottom-design">
+        <img src="img/footer-2.png" alt="Bottom Design">
+    </div>
 
     <footer>
         <p>&copy; 2024 RePuzzy. All rights reserved.</p>

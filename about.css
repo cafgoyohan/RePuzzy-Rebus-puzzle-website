@@ -3,10 +3,6 @@
     src: url(genshin.ttf);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,25 +12,28 @@ body {
     align-items: center;
     background-image: url('img/plain-bg.png');
     background-size: cover;
-    scroll-behavior: smooth;
 }
 
 .navbar {
     backdrop-filter: blur(3px);
     color: #fff;
-    position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    position: relative;
     font-family: genshin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    width: 100%;
+    padding: 0 20px;
     margin-right: 10px;
 }
 
@@ -47,7 +46,6 @@ body {
 }
 
 .nav-links {
-    padding: 0;
     display: flex;
     gap: 10px;
     list-style: none;
@@ -60,10 +58,10 @@ body {
     font-size: 20px;
     font-family: genshin;
     background-color: transparent;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
     cursor: pointer;
-    transition: opacity 0.6s ease;
-    transition: transform 0.6s ease;
+    transition: opacity 0.6s ease, transform 0.6s ease;
     white-space: nowrap;
 }
 
@@ -78,96 +76,207 @@ body {
 
 .nav-logo img {
     height: auto;
-    width: 8rem;
+    width: 10.5rem;
 }
 
-.nav-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-main {
-    padding: 20px;
-    width: 60%;
-    scroll-snap-type: y mandatory; /* Enable vertical snapping */
-    overflow-y: auto; /* Enable scrolling within main */
-}
-
-.scroll-section {
-    height: 100vh; /* Take up full viewport height */
-    scroll-snap-align: start; /* Snap to the start of each section */
-    padding: 20px; /* Adjust as needed for spacing */
-}
-
-main section .header1 {
-    text-align: center;
-    font-family: genshin;
-    font-size: 30px;
-    color: #869360;
-}
-
-main section .header2 {
-    text-align: center;
-    font-family: genshin;
-    font-size: 25px;
-    color: #869360;
-    padding-top: 10px;
-}
-
-main section p, li {
-    font-size: 18px;
-    color: #574A25;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 50px;
-}
-
-.button-container button {
-    padding: 15px 30px;
-    font-family: genshin;
-    font-size: 30px;
-    color: #ffffff;
-    margin: 10px;
+.hamburger {
+    display: none;
     cursor: pointer;
-    background: transparent;
-    border: none;
-    border-radius: 30px;
- 
-    box-shadow: inset 5px 5px 7px #dff59e,
-                inset -5px -5px 7px #869360;
 }
 
-.button-container button:hover {
-    box-shadow: inset 5px 5px 7px #869360,
-                inset -5px -5px 7px #dff59e;
+.hamburger img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
 }
 
-.bottom-design {
-    position: fixed;
-    bottom: 0;
+.hamburger img:hover {
+    animation: paw-wave 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes paw-wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(20deg); }
+}
+
+.header-design {
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 2;
 }
 
-.bottom-design img {
+.header-design img {
     width: 100%;
     display: block;
 }
 
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    z-index: 100;
+    position: relative;
+}
+
+.card-section {
+    width: 80%;
+    height: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 80%;
+    height: auto;
+    background-color: rgba(252, 247, 227, 0.8);
+    border: 8px solid #b18249;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.card .header1,
+.card .header2 {
+    font-family: genshin;
+    color: #869360;
+}
+
+.card .header1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.card .header2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.card p, .card li {
+    font-size: 18px;
+    color: #574A25;
+}
+
 footer {
-    position: fixed;
     width: 100%;
     background-color: transparent;
-    color: #574A25;
+    backdrop-filter: blur(3px);
+    color: #ffffff;
     text-align: center;
     padding: 10px 0;
-    bottom: 0;
-    z-index: 1000;
+    z-index: 1; 
+    margin-top: auto;
+}
+
+@media (min-width: 951px) {
+    .nav-links {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .nav-links {
+        display: flex;
+    }
+
+    .nav-logo {
+        margin-left: 0;
+    }
+
+    .nav-links a {
+        padding: 10px 8px;
+        font-size: 18px;
+    }
+
+    .card {
+        border: 5px solid #b18249;
+        border-radius: 15px;
+    }
+
+    .card .header1 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    
+    .card .header2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .card p, .card li {
+        font-size: 15px;
+        color: #574A25;
+    }
+
+    footer {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        padding: 15px;
+        background-color: rgba(111, 142, 74, 0.5);
+        box-shadow: 0 0 10px rgba(124, 159, 67, 0.516);
+        border-radius: 20px;
+    }
+
+    .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger img:hover {
+        animation: paw-wave 0.5s ease-in-out infinite alternate;
+    }
+
+    .card {
+        border: 5px solid #b18249;
+        border-radius: 15px;
+    }
+
+    .card .header1 {
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+    
+    .card .header2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .card p, .card li {
+        font-size: 15px;
+        color: #574A25;
+    }
+
+    footer {
+        font-size: 10px;
+    }
 }

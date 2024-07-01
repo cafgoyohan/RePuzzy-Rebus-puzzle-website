@@ -10,64 +10,126 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('img/longbg.png');
+    background-image: url('img/plain-bg.png');
     background-size: cover;
-    background-repeat: no-repeat;
 }
 
-header {
-    position: fixed;
+.navbar {
+    backdrop-filter: blur(3px);
+    color: #fff;
     width: 100%;
+    top: 0;
     z-index: 1000;
-    background-image: url('img/navbg.png');
-    background-size: cover;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    height: 115px;
+    font-family: genshin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
 }
 
-header nav ul {
-    padding: 0;
-    margin: 25px 20px 0 0;
+.nav-content {
     display: flex;
-    gap: 20px;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+    margin-right: 10px;
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px 0px 0px 20px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
     list-style: none;
 }
 
-header nav ul li {
-    display: inline;
-    transition: transform 0.3s ease;
-}
-
-header nav ul li:hover {
-    transform: scale(1.1);
-}
-
-header nav ul:hover > :not(:hover) {
-    opacity: 0.4;
-}
-
-header nav ul li a,
-header nav ul li button {
+.nav-links a {
     color: white;
     text-decoration: none;
     padding: 10px 10px;
-    font-size: 23px;
+    font-size: 20px;
     font-family: genshin;
     background-color: transparent;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: none;
+    cursor: pointer;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.nav-links:hover > :not(:hover) {
+    opacity: 0.4;
+}
+
+.nav-logo img {
+    height: auto;
+    width: 10.5rem;
+}
+
+.hamburger {
+    display: none;
     cursor: pointer;
 }
 
+.hamburger img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hamburger img:hover {
+    animation: paw-wave 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes paw-wave {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(20deg); }
+}
+
+.header-design {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.header-design img {
+    width: 100%;
+    display: block;
+}
+
 main {
+    width: 100%;
     display: flex;
-    padding: 50px;
-    margin: 12rem 20rem 0rem 20rem;
-    background-image: url('img/contentbg.png');
-    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    z-index: 100;
+}
+
+.contact {
     width: 60%;
+    height: auto;
+    background-color: rgba(252, 247, 227, 0.8);
+    border: 8px solid #b18249;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
 }
 
 main section .header1 {
@@ -122,24 +184,24 @@ form input, form textarea {
     color: #574A25;
 }
 
-form button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 50px;
+.submit-button {
+    background-color: transparent;
+    background-image: url("img/plank.png");
+    background-size: cover;
     font-family: genshin;
     font-size: 20px;
-    color: #574A25;
-    cursor: pointer;
-    background: transparent;
+    color: white;
     border: none;
-    border-radius: 30px;
-    box-shadow: inset 5px 5px 7px #fefbee, 
-                inset -5px -5px 7px #dddad4;
+    padding: 23px 50px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+    z-index: 1;
+    align-self: center;
 }
 
-form button:hover {
-    box-shadow: inset 5px 5px 7px #dddad4, 
-                inset -5px -5px 7px #fefbee;
+.submit-button:hover {
+    transform: scale(1.05);
 }
 
 .social-media {
@@ -167,83 +229,199 @@ form button:hover {
     transform: scale(1.1);
 }
 
+.bottom-design {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.bottom-design img {
+    width: 100%;
+    display: block;
+}
+
 footer {
     width: 100%;
-    background-color: #869360;
+    background-color: transparent;
+    backdrop-filter: blur(3px);
     color: #ffffff;
     text-align: center;
     padding: 10px 0;
-    bottom: 0;
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-    main {
-        margin: 5rem 10rem 3rem 10rem;
+@media (min-width: 951px) {
+    .nav-links {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .nav-links {
+        display: flex;
+    }
+
+    .nav-logo {
+        margin-left: 0;
+    }
+
+    .nav-links a {
+        padding: 10px 5px;
+        font-size: 18px;
+    }
+
+    .contact {
+        background-color: rgba(252, 247, 227, 0.8);
+        border: 5px solid #b18249;
+        border-radius: 15px;
     }
 
     main section .header1 {
         font-size: 28px;
     }
-
+    
     main section .header2 {
-        font-size: 23px;
-    }
-
-    form button {
+        text-align: center;
+        font-family: genshin;
         font-size: 18px;
+        color: #869360;
+        padding-top: 30px;
     }
-}
-
-@media (max-width: 768px) {
-    header nav ul {
-        flex-direction: column;
-        align-items: center;
+    
+    main section p, li, a {
+        font-size: 13px;
+        color: #574A25;
+        text-decoration: none;
     }
-
-    header nav ul li {
-        margin-bottom: 10px;
-    }
-
-    header nav ul li a {
-        font-size: 20px;
-    }
-
-    main {
-        margin: 5rem 5rem 3rem 5rem;
-    }
-
-    main section .header1 {
-        font-size: 26px;
-    }
-
-    main section .header2 {
-        font-size: 21px;
-    }
-
-    form button {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    header nav ul li a {
-        font-size: 18px;
-    }
-
-    main {
-        margin: 3rem 2rem 2rem 2rem;
-    }
-
-    main section .header1 {
-        font-size: 24px;
-    }
-
-    main section .header2 {
-        font-size: 20px;
-    }
-
-    form button {
+    
+    main section span {
+        font-family: genshin;
         font-size: 14px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 15px;
+    }
+    
+    form label {
+        font-size: 15px;
+    }
+    
+    form input, form textarea {
+        padding: 5px;
+        font-size: 13px;
+    }
+
+    .submit-button {
+        font-size: 15px;
+        padding: 15px 30px;
+    }
+
+    .social-media li a {
+        font-size: 15px;
+    }
+
+    footer {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        padding: 15px;
+        background-color: rgba(111, 142, 74, 0.5);
+        box-shadow: 0 0 10px rgba(124, 159, 67, 0.516);
+        border-radius: 20px;
+    }
+
+    .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+        white-space: nowrap;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .hamburger img:hover {
+        animation: paw-wave 0.5s ease-in-out infinite alternate;
+    }
+
+    .contact {
+        background-color: rgba(252, 247, 227, 0.8);
+        border: 5px solid #b18249;
+        border-radius: 15px;
+    }
+    
+    main section .header1 {
+        font-size: 25px;
+    }
+    
+    main section .header2 {
+        text-align: center;
+        font-family: genshin;
+        font-size: 20px;
+        color: #869360;
+        padding-top: 30px;
+    }
+    
+    main section p, li, a {
+        font-size: 15px;
+        color: #574A25;
+        text-decoration: none;
+    }
+    
+    main section span {
+        font-family: genshin;
+        font-size: 15px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+        margin-top: 15px;
+    }
+    
+    form label {
+        font-size: 15px;
+    }
+    
+    form input, form textarea {
+        padding: 5px;
+        font-size: 13px;
+    }
+
+    .submit-button {
+        font-size: 15px;
+        padding: 15px 30px;
+    }
+
+    .social-media li a {
+        font-size: 15px;
+    }
+
+    footer {
+        font-size: 7px;
     }
 }

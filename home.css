@@ -89,8 +89,8 @@ body {
 }
 
 .hamburger img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: auto;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -215,7 +215,7 @@ footer {
     }
 
     .logo img {
-        width: 25rem;
+        width: 23rem;
         height: auto;
     }
 
@@ -242,23 +242,6 @@ footer {
 
     .nav-links {
         display: none;
-        width: 100%;
-        text-align: left;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        padding: 15px;
-        background-color: rgba(111, 142, 74, 0.5);
-        box-shadow: 0 0 10px rgba(124, 159, 67, 0.516);
-        border-radius: 20px;
-    }
-
-    .nav-links a {
-        padding: 10px;
-        border-top: 1px solid #444;
-        color: #fff;
-        text-decoration: none;
-        display: block;
     }
 
     .hamburger {
@@ -268,8 +251,8 @@ footer {
     }
 
     .hamburger img {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: auto;
         transition: transform 0.3s ease-in-out;
     }
 
