@@ -52,3 +52,49 @@ document.addEventListener('DOMContentLoaded', function() {
 function closePopup() {
     document.getElementById('popup').style.display = 'none';
 }
+
+//WIP start
+document.addEventListener('DOMContentLoaded', function() {
+    const puzzles = [
+        { id: 'puzzle1', answer: 'araw-araw sweldo', index: 0 },
+        { id: 'puzzle2', answer: 'champorado', index: 1  },
+        { id: 'puzzle3', answer: 'love ko to', index: 2 },
+        { id: 'puzzle4', answer: 'malaki ang ulo', index: 3 },
+        { id: 'puzzle5', answer: 'bida ang saya', index: 4 },
+        { id: 'puzzle6', answer: 'maliwanag ang buhay', index: 5 },
+        { id: 'puzzle7', answer: 'sa ilalim ng puting ilaw', index: 6 },
+        { id: 'puzzle8', answer: 'tulog mantika', index: 7 },
+        { id: 'puzzle9', answer: 'baguio', index: 8 },
+        { id: 'puzzle10', answer: 'bahaghari', index: 9 },
+        { id: 'puzzle11', answer: 'kanin-tutong', index: 10 },
+        { id: 'puzzle12', answer: 'panganay', index: 11 },
+        { id: 'puzzle13', answer: 'santa mesa', index: 12 },
+        { id: 'puzzle14', answer: 'pureza', index: 13 }
+    ];
+
+//WIP next and previous functions
+function prevPage() {
+    if (index > 0) {
+        puzzles.forEach((puzzle, index) => {
+            document.getElementById('nav-button').addEventListener('click', function() {
+            index = index - 1;
+            const queryString = `?id=${puzzle.id}&answer=${encodeURIComponent(puzzle.answer)}&index=${index}`;
+            window.location.href = `puzzle.html${queryString}`;
+        });
+    });
+    }
+}
+
+function nextPage() {
+    if (index < puzzleImage.length - 1) {
+        puzzles.forEach((puzzle, index) => {
+            document.getElementById('nav-button').addEventListener('click', function() {
+            index = index + 1;
+            const queryString = `?id=${puzzle.id}&answer=${encodeURIComponent(puzzle.answer)}&index=${index}`;
+            window.location.href = `puzzle.html${queryString}`;
+        });
+    });
+    }
+}
+
+});
