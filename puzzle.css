@@ -7,32 +7,23 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url('img/plain-bg.png');
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url('img/plain-bg.png');
-    background-size: cover;
+    height: 100vh;
 }
 
 .header {
     width: 100%;
     padding: 10px;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     background-color: transparent;
-}
-
-.header-design {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2;
-}
-
-.header-design img {
-    width: 100%;
-    display: block;
+    position: relative;
+    z-index: 100;
 }
 
 .back-button {
@@ -55,27 +46,294 @@ body {
     transform: scale(1.05);
 }
 
-.puzzle-container {
+.header-logo {
+    margin: 15px 15px;
+    height: 50px;
+    width: auto;
+}
+
+.header-design {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.header-design img {
+    width: 100%;
+    display: block;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    z-index: 2;
+    width: 80%;
+    height: 70%;    
+}
+
+.puzzle-image-container,
+.puzzle-form-container {
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+.puzzle-image-container {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
-    z-index: 100;
+    justify-content: center;
+    min-width: 300px;
+}
+
+.puzzle-form-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(252, 247, 227, 0.8);
+    border: 8px solid #b18249;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+.puzzle-title {
+    color: #b18249;
+    font-family: genshin;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
 #puzzle-image {
-    width: 30%;
+    width: 80%;
     height: auto;
+    margin-bottom: 10px;
 }
 
 #answer-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
     margin: 20px 0;
+    width: 100%;
 }
 
 input[type="text"] {
+    flex: 1;
+    min-width: 30px;
+    font-family: genshin;
     font-size: 18px;
-    padding: 10px;
-    margin: 5px;
-    width: 30px;
+    color: #b18249;
+    padding: 5px;
     text-align: center;
+    border: none;
+    border-bottom: 4px solid #b18249;
+    background: none;
+    outline: none;
+    box-shadow: none;
+}
+
+input[type="text"]:disabled {
+    border: none;
+    background: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+button[type="submit"] {
+    background-color: transparent;
+    background-image: url("img/plank.png");
+    background-size: cover;
+    font-family: genshin;
+    font-size: 20px;
+    color: white;
+    border: none;
+    padding: 15px 60px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.05);
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.nav-button {
+    background-color: transparent;
+    color: #b18249;
+    border: 3px solid #b18249;
+    border-radius: 30px;
+    font-family: genshin;
+    font-size: 15px;
+    padding: 8px 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+}
+
+.nav-button:hover {
+    transform: scale(1.05);
+}
+
+.popup {
+    width: 30%;
+    height: auto;
+    font-family: genshin;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: rgba(252, 247, 227);
+    border: 5px solid #7C9B26;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    color: #7C9B26;
+}
+
+
+.popup-content button {
+    background-color: transparent;
+    font-family: genshin;
+    font-size: 15px;
+    color: #7C9B26;
+    border: 3px solid #7C9B26;
+    border-radius: 30px;
+    padding: 10px 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+    margin-top: 10px;
+}
+
+.popup-content button:hover {
+    transform: scale(1.05);
+}
+
+@media (min-width: 951px) {
+    .nav-links {
+        display: flex !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .back-button {
+        padding: 10px 50px;
+        font-size: 16px;
+    }
+    
+    .header-logo {
+        margin-top: 15px;
+        height: 40px;
+        width: auto;
+    }
+
+    .puzzle-form-container {
+        border: 5px solid #b18249;
+        border-radius: 20px;
+    }
+
+    .puzzle-title {
+        font-size: 25px;
+    }
+
+    input[type="text"] {
+        font-size: 15px;
+        padding: 5px;
+        border-bottom: 3px solid #b18249;
+    }
+
+    button[type="submit"] {
+        font-size: 15px;
+        padding: 13px 50px;
+    }
+
+    .nav-button {
+        border: 2.5px solid #b18249;
+        font-size: 13px;
+        padding: 5px 20px;
+    }
+
+    .popup {
+        border: 3px solid #7C9B26;
+        border-radius: 20px;
+    }
+    
+    .popup-content {
+        font-size: 15px;
+    }
+    
+    
+    .popup-content button {
+        font-size: 10px;
+        border: 2px solid #7C9B26;
+        border-radius: 30px;
+        padding: 5px 20px;
+    }
+}
+
+@media only screen and (max-width: 510px) {
+    .back-button {
+        padding: 10px 50px;
+        font-size: 16px;
+    }
+    
+    .header-logo {
+        margin-top: 15px;
+        height: 40px;
+        width: auto;
+    }
+
+    .puzzle-form-container {
+        border: 5px solid #b18249;
+        border-radius: 20px;
+    }
+
+    .puzzle-title {
+        font-size: 20px;
+    }
+
+    input[type="text"] {
+        font-size: 15px;
+        padding: 3px;
+        border-bottom: 3px solid #b18249;
+    }
+
+    button[type="submit"] {
+        font-size: 15px;
+        padding: 13px 50px;
+    }
+
+    .nav-button {
+        border: 2.5px solid #b18249;
+        font-size: 13px;
+        padding: 5px 20px;
+    }
 }

@@ -199,7 +199,7 @@ form input, form textarea {
     z-index: 1;
     align-self: center;
     position: relative;
-      left: 40%;
+    left: 40%;
 }
 
 .submit-button:hover {

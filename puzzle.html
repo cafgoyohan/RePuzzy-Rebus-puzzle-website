@@ -6,24 +6,47 @@
     <title>RePuzzy: Solve Puzzle</title>
     <link rel="stylesheet" href="puzzle.css">
 </head>
-
 <body>
     <div class="header">
         <button class="back-button" onclick="window.location.href='play.html'">Back</button>
+        <div class="logo-container">
+            <img src="img/logo-2.png" alt="RePuzzy Logo" class="header-logo">
+        </div>
     </div>
 
     <div class="header-design">
         <img src="img/header.png" alt="Header Design">
     </div>
 
-    <div class="puzzle-container">
-        <img id="puzzle-image" alt="Puzzle Image">
-        <form id="puzzle-form">
-            <div id="answer-input"></div>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="content">
+        <div class="puzzle-image-container">
+            <img id="puzzle-image" alt="Puzzle Image">
+        </div>
+
+        <div class="puzzle-form-container">
+            <div class="puzzle-title">Solve the Puzzy:</div>
+
+            <form id="puzzle-form">
+                <div id="answer-input"></div>
+                <div class="button-container">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+
+            <div class="navigation-buttons">
+                <button class="nav-button">Previous</button>
+                <button class="nav-button">Next</button>
+            </div>
+        </div>
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span id="popup-message"></span>
+                <button onclick="closePopup()">Close</button>
+            </div>
+        </div>
     </div>
-    
+
     <script src="puzzle.js"></script>
 </body>
 </html>
